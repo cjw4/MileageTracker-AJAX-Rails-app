@@ -18,18 +18,24 @@ $(document).ready(function() {
 		if (xhr.readyState == 4) {
 			var jsonResponse = xhr.responseText;
 			var jsonResponseObject = eval('(' + jsonResponse + ')');
-			console.log(jsonResponseObject.mileage.odometer_value);
-			var mileage = jsonResponseObject.mileage.odometer_value;
+			
+			var distance = $("<span>").attr("class", "jscalculated").text(jsonResponseObject.mileage.distance);
+			var fill_up = $("<span>").attr("class", "jscalculated").text("$"+jsonResponseObject.mileage.fill_up_cost);
+			var mpg = $("<span>").attr("class", "jscalculated").text(jsonResponseObject.mileage.mpg);
 			var odometerSpan = $("<span>").attr("class", "jsvalue").text(odometerValue);
 			var priceSpan = $("<span>").attr("class", "jsvalue").text("$" + price);
 			var gallonsSpan = $("<span>").attr("class", "jsvalue").text(gallons);
 			
 			$("#output").append(odometerSpan)
 			$("#output").append(priceSpan).append(gallonsSpan);
-			$("#output").append(jsonResponse);
+			$("#output").append(distance).append(fill_up).append(mpg);
 		}
 	}
 	xhr.send(null);
+	
+	$("#mileage_odometer_value").val("");
+	$("#mileage_price_of_gas").val("");
+	$("#mileage_gallons").val("");
 	
 	return false;
 	});

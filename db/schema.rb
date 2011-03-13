@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110313182946) do
+ActiveRecord::Schema.define(:version => 20110313223934) do
 
   create_table "mileages", :force => true do |t|
     t.float    "odometer_value"
@@ -18,6 +18,9 @@ ActiveRecord::Schema.define(:version => 20110313182946) do
     t.float    "gallons"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "fill_up_cost"
+    t.float    "distance"
+    t.float    "mpg"
   end
 
 end
