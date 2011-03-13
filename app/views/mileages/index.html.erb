@@ -4,7 +4,7 @@
   <div>
 	<span>Odometer Reading:</span>
   	<span><%= f.text_field :odometer_value %></span>
-	<span>Price of Gas:</span>
+	<span>Price of Gas: $</span>
 	<span><%= f.text_field :price_of_gas %></span>
 	<span>Gallons filled:</span>
 	<span><%= f.text_field :gallons %></span>
@@ -16,18 +16,30 @@
 
 <div>
 	<span class="label">Odometer Reading</span>
-	<span class="label">Distance Traveled</span>
 	<span class="label">Price of Gas</span>
 	<span class="label">Gallons Filled up</span>
-	<span class="label">Fill-up Cost</span>
+	<span class="calculatedLabel">Distance Traveled</span>
+	<span class="calculatedLabel">Fill-up Cost</span>
+	<span class="calculatedLabel">Cost Efficiency [$/mile]</span>
+	<span class="calculatedLabel">Miles/Gal</span>
 </div>
 
+<div id="output">
 <% @mileages.each do |mileage| %>
-  <div>
-  	<span class="value"><%= mileage.odometer_value %></span>
-	<span class="value"></span>
-	<span class="value"><%= mileage.price_of_gas %></span>
-	<span class="value"><%= mileage.gallons %></span>
-	<span class="value"></span>
-  </div>
+  <% if mileage.id != 1
+	   previous_entry = mileage.id - 1 
+	   @previous_mileage = Mileage.find(previous_entry).odometer_value
+	 else
+		@previous_mileage = 0 
+	 end
+	%>
+  <span class="value"><%= mileage.odometer_value %></span>
+  <span class="value">$<%= mileage.price_of_gas %></span>
+  <span class="value"><%= mileage.gallons %></span>
+  <span class="calculated"><%= mileage.odometer_value - @previous_mileage %></span>
+  <span class="calculated">$<%= mileage.price_of_gas * mileage.gallons %></span>
+  <span class="calculated"><%= ((mileage.price_of_gas * mileage.gallons) / (mileage.odometer_value - @previous_mileage)) %></span>
+  <span class="calculated"><%= (mileage.odometer_value - @previous_mileage) / mileage.gallons %></span>
+
 <% end %>
+</div>
