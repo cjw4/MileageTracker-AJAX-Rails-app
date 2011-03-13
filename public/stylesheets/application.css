@@ -1,5 +1,23 @@
 #wrapper {
 	border:solid blue thin;
-	width:700px;
+	width:800px;
 	margin:0 auto;
+}
+input[type="text"] {
+	width: 50px;
+}
+.label {
+	text-decoration:underline;
+	display:inline-block;
+	text-align:center;
+	width:150px;
+}
+.value {
+	display: inline-block;
+	text-align:center;
+	width:150px;
+	border:solid;
+}
+h1, h2 {
+	margin:15px 0px 15px 10px;
 }

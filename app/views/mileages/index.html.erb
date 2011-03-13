@@ -1,3 +1,33 @@
 <h1>Mileage Tracker</h1>
 
+<%= form_for(@mileage) do |f| %>
+  <div>
+	<span>Odometer Reading:</span>
+  	<span><%= f.text_field :odometer_value %></span>
+	<span>Price of Gas:</span>
+	<span><%= f.text_field :price_of_gas %></span>
+	<span>Gallons filled:</span>
+	<span><%= f.text_field :gallons %></span>
+	<span><%= f.submit "Submit Entry" %></span>
+  </div>
+<% end  %>
 
+<h2>Your Entries</h2>
+
+<div>
+	<span class="label">Odometer Reading</span>
+	<span class="label">Distance Traveled</span>
+	<span class="label">Price of Gas</span>
+	<span class="label">Gallons Filled up</span>
+	<span class="label">Fill-up Cost</span>
+</div>
+
+<% @mileages.each do |mileage| %>
+  <div>
+  	<span class="value"><%= mileage.odometer_value %></span>
+	<span class="value"></span>
+	<span class="value"><%= mileage.price_of_gas %></span>
+	<span class="value"><%= mileage.gallons %></span>
+	<span class="value"></span>
+  </div>
+<% end %>
