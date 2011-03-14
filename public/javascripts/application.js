@@ -1,6 +1,9 @@
 $(document).ready(function() {
 	
 	$("#new_mileage").submit(function() {
+	// place loading... text
+	var loading = $("<span>").attr("id","loading").text("Loading...")
+	$("#input").append(loading);
 		
 	// get the values from the input fields and set the parameters for the query string
 	var odometerValue = $("#mileage_odometer_value").val();
@@ -16,6 +19,8 @@ $(document).ready(function() {
 	xhr.onreadystatechange = function() {
 		// perform callback when server is ready
 		if (xhr.readyState == 4) {
+			document.getElementById("loading").parentNode.removeChild(document.getElementById("loading"));
+			
 			var jsonResponse = xhr.responseText;
 			var jsonResponseObject = eval('(' + jsonResponse + ')');
 			
