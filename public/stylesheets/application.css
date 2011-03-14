@@ -58,3 +58,17 @@ h1, h2 {
 	margin:0 10px;
 	color: green;
 }
+#about h3 {
+	color:orange;
+}
+#about h3:hover {
+	color:gray;
+	cursor:pointer;
+}
+#about p {
+	display:none;
+}
+#footer {
+	margin-top:20px;
+	border-top:solid;
+}

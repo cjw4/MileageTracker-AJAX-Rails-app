@@ -45,4 +45,9 @@ $(document).ready(function() {
 	
 	return false;
 	});
+	
+	$("#about h3").bind("click", function() {
+		$("#about p").slideToggle("slow");
+	});
 });
+
