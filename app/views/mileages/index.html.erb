@@ -1,5 +1,10 @@
 <h1 id="title">Mileage Tracker</h1>
-
+<div id="about">
+	<h3>Why did I make this app?</h3>
+	<p class="about">We all know Rails is awesome and Ajax is even cooler, so I wanted to see if <em>I</em> could put the two together in an attempt to make a fully functional single page app. Maybe Ajax isn't exactly needed in this simple of a project, but it sure does improve the
+		user experience!! Ajax makes apps elegant and I'm really proud of this first Ajax/Rails mashup of mine!</p>
+		
+</div> 
 <%= form_for(@mileage) do |f| %>
   <div id="input">
 	<span class="time">Today is <%= @time.strftime('%B %e, %Y') %></span>
@@ -45,3 +50,4 @@
 
 <% end %>
 </div>
+
