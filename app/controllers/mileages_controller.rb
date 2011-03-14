@@ -15,7 +15,7 @@ class MileagesController < ApplicationController
     
     previous_distance = Mileage.find(@mileage.id - 1).odometer_value 
     @mileage.distance = params["odometer"].to_f - previous_distance
-    @mileage.mpg = previous_distance / params["gallons"].to_f
+    @mileage.mpg = ((previous_distance / params["gallons"].to_f) * 10**2).round.to_f / 10**2
     
     respond_to do |format|
       format.json { render :json => @mileage}

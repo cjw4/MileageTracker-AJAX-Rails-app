@@ -1,7 +1,7 @@
 class CreateMileages < ActiveRecord::Migration
   def self.up
     create_table :mileages do |t|
-      t.float :odometer_value
+      t.integer :odometer_value
       t.float :price_of_gas
       t.float :gallons
 

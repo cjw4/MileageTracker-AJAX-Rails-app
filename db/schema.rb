@@ -13,13 +13,13 @@
 ActiveRecord::Schema.define(:version => 20110313223934) do
 
   create_table "mileages", :force => true do |t|
-    t.float    "odometer_value"
+    t.integer  "odometer_value"
     t.float    "price_of_gas"
     t.float    "gallons"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "fill_up_cost"
-    t.float    "distance"
+    t.integer  "distance"
     t.float    "mpg"
   end
 

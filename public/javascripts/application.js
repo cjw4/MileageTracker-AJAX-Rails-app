@@ -22,9 +22,9 @@ $(document).ready(function() {
 			var distance = $("<span>").attr("class", "jscalculated").text(jsonResponseObject.mileage.distance);
 			var fill_up = $("<span>").attr("class", "jscalculated").text("$"+jsonResponseObject.mileage.fill_up_cost);
 			var mpg = $("<span>").attr("class", "jscalculated").text(jsonResponseObject.mileage.mpg);
-			var odometerSpan = $("<span>").attr("class", "jsvalue").text(odometerValue);
-			var priceSpan = $("<span>").attr("class", "jsvalue").text("$" + price);
-			var gallonsSpan = $("<span>").attr("class", "jsvalue").text(gallons);
+			var odometerSpan = $("<span>").attr("class", "jsvalue").text(jsonResponseObject.mileage.odometer_value);
+			var priceSpan = $("<span>").attr("class", "jsvalue").text("$" + jsonResponseObject.mileage.price_of_gas);
+			var gallonsSpan = $("<span>").attr("class", "jsvalue").text(jsonResponseObject.mileage.gallons);
 			
 			$("#output").append(odometerSpan)
 			$("#output").append(priceSpan).append(gallonsSpan);

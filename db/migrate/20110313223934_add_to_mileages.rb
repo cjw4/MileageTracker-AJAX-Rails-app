@@ -1,6 +1,6 @@
 class AddToMileages < ActiveRecord::Migration
   def self.up
-    add_column :mileages, :distance, :float
+    add_column :mileages, :distance, :integer
     add_column :mileages, :mpg, :float
   end
 

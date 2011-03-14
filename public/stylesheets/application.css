@@ -1,7 +1,10 @@
 #wrapper {
-	border:solid blue thin;
 	width:1000px;
 	margin:0 auto;
+}
+#input {
+	margin:0 auto;
+	width:600px;
 }
 input[type="text"] {
 	width: 50px;
@@ -42,6 +45,11 @@ input[type="text"] {
 	width:150px;
 	color:blue;
 	margin-right:4px;
+}
+#title {
+	margin:0 auto;
+	width:230px;
+	padding:20px;
 }
 h1, h2 {
 	margin:15px 0px 15px 10px;

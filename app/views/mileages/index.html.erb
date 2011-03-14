@@ -1,7 +1,7 @@
-<h1>Mileage Tracker</h1>
+<h1 id="title">Mileage Tracker</h1>
 
 <%= form_for(@mileage) do |f| %>
-  <div>
+  <div id="input">
 	<span>Odometer Reading:</span>
   	<span><%= f.text_field :odometer_value %></span>
 	<span>Price of Gas: $</span>
@@ -36,8 +36,8 @@
   <span class="value">$<%= mileage.price_of_gas %></span>
   <span class="value"><%= mileage.gallons %></span>
   <span class="calculated"><%= mileage.odometer_value - @previous_mileage %></span>
-  <span class="calculated">$<%= mileage.price_of_gas * mileage.gallons %></span>
-  <span class="calculated"><%= (mileage.odometer_value - @previous_mileage) / mileage.gallons %></span>
+  <span class="calculated">$<%= ((mileage.price_of_gas * mileage.gallons) * 10**2).round.to_f / 10**2 %></span>
+  <span class="calculated"><%= (((mileage.odometer_value - @previous_mileage) / mileage.gallons) * 10**2).round.to_f / 10**2 %></span>
 
 <% end %>
 </div>
