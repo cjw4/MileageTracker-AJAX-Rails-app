@@ -1,16 +1,18 @@
 class MileagesController < ApplicationController
   
   def index
+    @time = Time.now
     @mileage = Mileage.new
     @mileages = Mileage.all
   end
   
   def create
     fill_up_cost = params["price"].to_f*params["gallons"].to_f
-    
+    @time = Time.new
     @mileage = Mileage.create!({ :odometer_value => params["odometer"],
                                  :price_of_gas   => params["price"],  
                                  :gallons        => params["gallons"],
+                                 :time           => "#{@time.strftime('%B %e, %Y')}",
                                  :fill_up_cost   => fill_up_cost })
     
     previous_distance = Mileage.find(@mileage.id - 1).odometer_value 
